@@ -1,0 +1,14 @@
+{
+  "name": "mqtt",
+  "version": "1.0.0",
+  "description": "Broker mqtt demo",
+  "main": "broker.js",
+  "scripts": {
+    "start": "node broker"
+  },
+  "author": "Trần Trọng Hiến",
+  "license": "TTH",
+  "dependencies":{
+    "mosca": "^2.8.3"
+  }
+}
