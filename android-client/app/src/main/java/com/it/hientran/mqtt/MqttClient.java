@@ -15,6 +15,8 @@ import org.eclipse.paho.client.mqttv3.IMqttToken;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+import java.io.UnsupportedEncodingException;
+
 public class MqttClient {
     private MqttAndroidClient client;
     private final String TAG = "debug-mqtt";
@@ -25,16 +27,23 @@ public class MqttClient {
 
     public MqttClient(Context context) {
         if (client == null) {
+            String url = BuildConfig.DEBUG ? "tcp://192.168.1.178:1883" : Constants.URL;
             String clientId = org.eclipse.paho.client.mqttv3.MqttClient.generateClientId();
-            client = new MqttAndroidClient(context, Constants.URL, clientId);
+            client = new MqttAndroidClient(context, url, clientId);
         }
     }
 
-    public void Publish() {
+    public void Publish(String mess) {
         MqttMessage message = new MqttMessage();
         try {
+            message.setPayload(mess.getBytes("UTF-8"));
+            message.setRetained(true);
             client.publish(Constants.TOPIC, message);
         } catch (MqttException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -124,7 +133,7 @@ public class MqttClient {
                     if (mMqttClientConnectListener != null) {
                         mMqttClientConnectListener.onConnectFailed(exception.getMessage());
                     }
-                    Log.i(TAG, "onFailure: connect fail " + exception.getMessage());
+                    Log.e(TAG, "onFailure: connect fail " + exception.getMessage() , exception);
                 }
             });
         } catch (MqttException e) {

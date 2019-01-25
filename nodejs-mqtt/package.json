@@ -8,7 +8,7 @@
   },
   "author": "Trần Trọng Hiến",
   "license": "TTH",
-  "dependencies":{
+  "dependencies": {
     "mosca": "^2.8.3"
   }
 }
