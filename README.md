@@ -5,3 +5,7 @@
  + add to git `git add .`
  + comit `git commit -m "message"`
  + push and deloy to heroku `git push heroku master`
+ 
+# Test with client node 
++ go to dir  `cd nodejs-mqtt`
++ run client subscriber and publisher `node subscriber.js` and `node publisher.js`
