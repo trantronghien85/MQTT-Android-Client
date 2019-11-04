@@ -8,4 +8,4 @@
  
 # Test with client node 
 + go to dir  `cd nodejs-mqtt`
-+ run client subscriber and publisher `node subscriber.js` and `node publisher.js`
++ run client subscriber and publisher `node publisher.js` after `node subscriber.js` 
