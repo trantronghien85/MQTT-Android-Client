@@ -9,3 +9,6 @@
 # Test with client node 
 + go to dir  `cd nodejs-mqtt`
 + run client subscriber and publisher `node publisher.js` after `node subscriber.js` 
+
+# Model
+![mqtt protocol](https://github.com/trantronghien/MQTT-Android-Client/blob/master/mqtt-protocol.png)
