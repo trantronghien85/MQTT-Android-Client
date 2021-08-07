@@ -6,8 +6,9 @@
  + comit `git commit -m "message"`
  + push and deloy to heroku `git push heroku master`
  
-# Test with client node 
+# Test with client node
 + go to dir  `cd nodejs-mqtt`
++ please start `nmp start` broker start
 + run client subscriber and publisher `node publisher.js` after `node subscriber.js` 
 
 # Model
